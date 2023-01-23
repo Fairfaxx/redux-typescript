@@ -7,9 +7,13 @@ interface RepositoriesState {
   data: string[];
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: []
+}
 
-
-const reducer = (state: RepositoriesState, action: Action): RepositoriesState => { // after : adding RepositoriesState tells typescripts that the whole switch must match the interface
+const reducer = (state: RepositoriesState = initialState, action: Action): RepositoriesState => { // after : adding RepositoriesState tells typescripts that the whole switch must match the interface
   switch (action.type) {
     case ActionType.SEARCH_REPOSITORIES:
       return { 
